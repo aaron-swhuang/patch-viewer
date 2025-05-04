@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patch Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <h1>Patch Viewer</h1>
+
+    <div class="container">
+        <div id="fileList">
+            <div id="fileList-header">
+                <h2>Patch files</h2>
+                <label for="patchDirectory" class="select-dir-button">Select directory</label>
+                <input type="file" id="patchDirectory" webkitdirectory multiple accept=".patch" onchange="loadFiles(this.files)" style="display: none;">
+            </div>
+            <ul></ul>
+        </div>
+        <div id="patchView">
+            <div class="filter-buttons">
+                <button onclick="filterView('all')" disabled class="filter-button small view-all">Show all</button>
+                <button onclick="filterView('added')" disabled class="filter-button small view-added">Added only</button>
+                <button onclick="filterView('removed')" disabled class="filter-button small view-removed">Removed only</button>
+            </div>
+            <pre id="patchContent"><code class="language-diff"></code></pre>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 <span class="product-name">Patch Viewer</span> <span class="version">Version 1.0</span></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    height: 80vh; /* container height */
+}
+
+#fileList {
+    width: 220px;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+    overflow-y: auto; /* Vertically scrollable while list overflow */
+    display: flex;
+    flex-direction: column; /* Align the title and botton vertically */
+    flex-shrink: 0;
+}
+
+#fileList-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-right: 1px;
+    display: flex; /* Make the title and button side by side */
+    align-items: center;
+    justify-content: space-between;
+}
+
+#fileList h2 {
+    margin-top: 0;
+    font-size: 1.0em;
+    margin-bottom: 0;
+}
+
+#fileList ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#fileList ul li a {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+#fileList ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.select-dir-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.select-dir-button:hover {
+    background-color: #0056b3;
+}
+
+#patchView {
+    flex-grow: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-buttons {
+    margin-bottom: 10px;
+    white-space: nowrap; /* Prevent line wrapping in narrow viewports */
+}
+
+.filter-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #367c39;
+}
+
+.filter-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+#patchContent {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-y: auto; /* Vertivally scrollable while patch overflow */
+    /*overflow-x: auto;*//* Horizontally scrollable while patch overflow */
+    background-color: white;
+    /*
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    */
+}
+
+/* Set background color for added lines */
+.added {
+    background-color: #e6ffe6;
+    display: block;
+    width: 100%;
+}
+
+/* Set background color for removed lines */
+.removed {
+    background-color: #ffe6e6;
+    display: block;
+    width: 100%;
+}
+
+.context {
+    display: block;
+    width: 100%;
+}
+
+.diff-info {
+    color: #2196F3;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    background-color: #f0f8ff;
+    padding: 0.2em 0.5em;
+    margin-bottom: 0.2em;
+    font-family: monospace;
+}
+/*
+.diff-info {
+    color: black;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    background-color: white;
+}*/
+
+/* selected button */
+.filter-button.selected {
+    font-weight: bold;
+    border: 2px solid #368b3b;
+    padding: 4px 8px;
+}
+
+.commit-message {
+    color: #777;
+    display: block;
+    width: 100%;
+    font-style: italic;
+    margin-bottom: 0.5em;
+    white-space: pre-wrap;
+}
+/*
+.commit-message {
+    color: black;
+    display: block;
+    width: 100%;
+    font-style: italic; //optional
+}
+*/
+
+/* Selected file */
+#fileList ul li a.selected {
+    font-weight: bold;
+    background-color: #e0f7fa;
+    color: #007bff;
+}
+
+footer {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.8em;
+    border-top: 1px solid #ccc;
+    margin-top: 20px; /* Margin to main content */
+}
+
+footer p {
+    margin: 5px 0;
+    white-space: nowrap;
+}
+
+.version {
+    margin-left: 3em;
+}
+
+/*
+.commit-header {
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+    background-color: #f8f8f8;
+    padding: 0.5em;
+    border-left: 3px solid #888;
+}
+*/
+.commit-id {
+    color: #FFA500; /* Orange for "Commit:" label */
+    font-weight: bold;
+}
+
+.commit-id-value {
+    color: #FF8C00; /* Dark Orange for commit ID value */
+    font-family: monospace;
+}
+
+.commit-author {
+    color: #2E8B57; /* Sea Green for "Author:" label */
+    font-weight: bold;
+}
+
+.commit-author-value {
+    color: #3CB371; /* Medium Sea Green for author name */
+}
+
+.commit-date {
+    color: #A0522D; /* Sienna for "Date:" label */
+    font-weight: bold;
+}
+
+.commit-date-value {
+    color: #D2691E; /* Chocolate for date value */
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.commit-subject {
+    color: #1E90FF; /* Dodger Blue for "Subject:" label */
+    font-weight: bold;
+}
+
+.commit-subject-value {
+    color: #4169E1; /* Royal Blue for subject value */
+}
