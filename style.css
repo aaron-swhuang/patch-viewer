@@ -169,8 +169,9 @@ body {
 
 /* selected button */
 .filter-button.selected {
+    background-color: #367c39;
     font-weight: bold;
-    border: 2px solid #368b3b;
+    border: 2px solid #367c39;
     padding: 4px 8px;
 }
 
@@ -182,6 +183,7 @@ body {
     margin-bottom: 0.5em;
     white-space: pre-wrap;
 }
+
 /*
 .commit-message {
     color: black;
